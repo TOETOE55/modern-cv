@@ -8,10 +8,10 @@
 
 // const icons
 #let linkedin-icon = box(fa-icon("linkedin", fa-set: "Brands", fill: color-darknight))
-#let github-icon = box(fa-icon("github", fa-set: "Brands", fill: color-darknight))
+#let github-icon = box(image("assets/icons/github.svg"))
 // for some reason this icon doesn't work with fa-icon, so we use the local version
 #let phone-icon = box(image("assets/icons/square-phone-solid.svg"))
-#let email-icon = box(fa-icon("envelope", fill: color-darknight))
+#let email-icon = box(image("assets/icons/envelope.svg"))
 
 /// Helpers
 
@@ -56,7 +56,7 @@
   set box(height: 11pt)
   
   align(right + horizon)[
-    #fa-icon("github", fa-set: "Brands", fill: color-darkgray) #link("https://github.com/" + github_path, github_path)
+    #github-icon #link("https://github.com/" + github_path, github_path)
   ]
 }
 
@@ -198,30 +198,30 @@
     ]
   }
 
-  let positions = {
-    set text(
-      accent_color,
-      size: 9pt,
-      weight: "regular"
-    )
-    align(center)[
-      #smallcaps[
-        #author.positions.join(
-          text[#"  "#sym.dot.c#"  "]
-        )
-      ]
-    ]
-  }
+  // let positions = {
+  //   set text(
+  //     accent_color,
+  //     size: 9pt,
+  //     weight: "regular"
+  //   )
+  //   align(center)[
+  //     #smallcaps[
+  //       #author.positions.join(
+  //         text[#"  "#sym.dot.c#"  "]
+  //       )
+  //     ]
+  //   ]
+  // }
 
-  let address = {
-    set text(
-      size: 9pt,
-      weight: "bold"
-    )
-    align(center)[
-      #author.address
-    ]
-  }
+  // let address = {
+  //   set text(
+  //     size: 9pt,
+  //     weight: "bold"
+  //   )
+  //   align(center)[
+  //     #author.address
+  //   ]
+  // }
 
   let contacts = {
     set box(height: 9pt)
@@ -240,19 +240,19 @@
           #separator
           #github-icon
           #box[#link("https://github.com/" + author.github)[#author.github]]
-          #separator
-          #linkedin-icon
-          #box[
-            #link("https://www.linkedin.com/in/" + author.linkedin)[#author.firstname #author.lastname]
-          ]
+          // #separator
+          // #linkedin-icon
+          // #box[
+          //   #link("https://www.linkedin.com/in/" + author.linkedin)[#author.firstname #author.lastname]
+          // ]
         ]
       ]
     ] 
   }
 
   name
-  positions
-  address
+  // positions
+  // address
   contacts
   body
 }
